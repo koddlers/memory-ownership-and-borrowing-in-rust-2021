@@ -45,4 +45,64 @@ pub mod managing_memory_with_ownership {
         print_string(&x);
         print_string(&x);
     }
+
+    #[derive(Debug)]
+    struct Person {
+        id: u8,
+        age: u8,
+        name: String,
+    }
+
+    impl Clone for Person {
+        fn clone(&self) -> Self {
+            println!("Copied from this old value: {:?}", self);
+
+            Self {
+                id: self.id,
+                age: self.age,
+                name: self.name.clone(),
+            }
+        }
+    }
+
+    pub fn copy_and_clone_traits() {
+        // Data types that implement the `Copy` trait
+        /// Scalar Types
+        // * Integer (i8, u8, i16, u16, i32, u32, i64, u64, i128, u128, isize, usize)
+        // * Float (f32, f64)
+        // * Boolean (bool)
+        // * Character (char)
+        /// Compound Types
+        // * Array
+        // * Tuple
+
+        let x = 42;
+        let mut y = x;
+
+        println!("Before, x is {}", x);
+        println!("Before, y is {}", y);
+
+        y = 500;
+
+        println!("After, x is {}", x);
+        println!("After, y is {}", y);
+
+        let person_1 = Person {
+            id: 1,
+            age: 20,
+            name: "Shaun".to_string(),
+        };
+
+        // `clone()` returns a deep copy of the original, which is essentially
+        // a new instance with the same `field:values` combination as the original
+        let mut person_2 = person_1.clone();
+        println!("person_2 (after clone): {:?}", person_2);
+
+        person_2.id = 2;
+        person_2.age = 30;
+        person_2.name = "John".to_string();
+
+        println!("person_1: {:?}", person_1);
+        println!("person_2 (after modification): {:?}", person_2);
+    }
 }
