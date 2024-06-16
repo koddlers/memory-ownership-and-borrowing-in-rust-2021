@@ -80,4 +80,15 @@ pub mod using_lifetimes_to_reduce_ambiguity_v2 {
                      sentence, first_word_in_string(sentence));
         }
     }
+
+    // static lifetimes lasts for the whole duration of the program,
+    // i.e. they are not bound to their enclosing scope
+    const GLOBAL_GREETING: &'static str = "Hello World as a constant";
+
+    pub fn static_lifetimes() {
+        let global_greeting: &'static str = "Hello World as a String Literal";
+
+        println!("Constant: {}", GLOBAL_GREETING);
+        println!("String Literal: {}", global_greeting);
+    }
 }

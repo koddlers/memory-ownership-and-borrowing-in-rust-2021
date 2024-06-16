@@ -23,5 +23,6 @@ fn main() {
     // Module 05 - Using Lifetimes to Reduce Ambiguity
     // using_lifetimes_to_reduce_ambiguity::lifetimes_in_functions();
     // using_lifetimes_to_reduce_ambiguity_v2::lifetimes_in_structs();
-    using_lifetimes_to_reduce_ambiguity_v2::lifetime_elision_rules();
+    // using_lifetimes_to_reduce_ambiguity_v2::lifetime_elision_rules();
+    using_lifetimes_to_reduce_ambiguity_v2::static_lifetimes();
 }
