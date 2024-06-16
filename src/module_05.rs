@@ -55,4 +55,29 @@ pub mod using_lifetimes_to_reduce_ambiguity_v2 {
         };
         println!("person_2: {:?}", person_2);
     }
+
+    // Lifetime Elision Rules
+    // 1. The compiler assigns a lifetime parameter to each parameter that's a reference.
+    // 2. If there is exactly one input lifetime parameter, that lifetime is assigned to
+    //    all output lifetime parameters.
+    // 3. If there are multiple input lifetime parameters, but one of them is &self or
+    //    &mut self, the lifetime of self is assigned to all output lifetime parameters.
+    fn first_word_in_string(s: &str) -> &str {
+        let bytes = s.as_bytes();
+        for (i, &item) in bytes.iter().enumerate() {
+            if item == b' ' {
+                return &s[0..i];
+            }
+        }
+        s
+    }
+
+    pub fn lifetime_elision_rules() {
+        let array_of_sentences = ["Hello World!", "How are you?", "I am fine"];
+
+        for sentence in array_of_sentences.iter() {
+            println!("The first word in the sentence `{}` is: {}",
+                     sentence, first_word_in_string(sentence));
+        }
+    }
 }
