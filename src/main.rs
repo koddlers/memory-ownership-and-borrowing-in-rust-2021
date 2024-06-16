@@ -13,5 +13,6 @@ fn main() {
     // managing_memory_with_ownership::copy_and_clone_traits();
 
     // Module 04 - Borrowing Values by Reference
-    borrowing_values_by_reference::immutable_references();
+    // borrowing_values_by_reference::immutable_references();
+    borrowing_values_by_reference::mutable_references();
 }
