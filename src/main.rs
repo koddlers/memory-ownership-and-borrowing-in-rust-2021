@@ -14,5 +14,6 @@ fn main() {
 
     // Module 04 - Borrowing Values by Reference
     // borrowing_values_by_reference::immutable_references();
-    borrowing_values_by_reference::mutable_references();
+    // borrowing_values_by_reference::mutable_references();
+    borrowing_values_by_reference::string_slices();
 }

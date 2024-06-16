@@ -44,4 +44,19 @@ pub mod borrowing_values_by_reference {
         // but it's ok here
         println!("The value of a is {}", a);
     }
+
+    pub fn string_slices() {
+        let mut x = String::new();
+        x.push_str("This string was built using the `new` constructor");
+        println!("x: {}", x);
+
+        let y = "This string is built using the `to_string` method".to_string();
+        println!("y: {}", y);
+
+        let z = String::from("This string was built using the `from` function");
+        println!("z: {}", z);
+
+        let slice = "This is a string slice of fixed length and cannot be modified";
+        println!("String Slice: {}", slice);
+    }
 }
